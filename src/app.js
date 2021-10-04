@@ -18,7 +18,7 @@ app.use(async function(ctx) {
   console.log(body);
   ctx.body = `Request Body: ${JSON.stringify(ctx.request.body)}`;
   
-  if (body == app.use(auth({ name: 'tj', pass: 'tobi' }))) {
+  if (false) {
     // ctx.body = 'Hello-World-Test2';
   }
   else {
