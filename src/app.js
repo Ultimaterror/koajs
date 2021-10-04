@@ -1,31 +1,37 @@
 // require est un mot clef necessaire pour importer un paquet
 const Koa = require('koa');
 
-// const auth = require('koa-basic-auth');
+// acceder aux params depuis le contexte
+const koaBody = require('koa-body');
+
+// declarer un router pour avoir plusieurs routes
+const Router = require('koa-router');
 
 // rendre disponbile pour d'autres fichiers l'applicatin koa 
+// Declare Main Application
 const app = module.exports = new Koa();
 
-const koaBody = require('koa-body');
 app.use(koaBody({ multipart: true }));
 
-// app.use(auth({ name: 'tj', pass: 'tobi' }));
+// Declare Router
+var router = new Router();
 
-// declaration et utilisation d'une fonction qui retournera Hello-World
-app.use(async function(ctx) {
-  // ctx.body c'est le contenu
-  const body = ctx.request.body;
-  console.log(body);
-  ctx.body = `Request Body: ${JSON.stringify(ctx.request.body)}`;
-  
-  if (false) {
-    // ctx.body = 'Hello-World-Test2';
-  }
-  else {
-    // ctx.body = 'Faux';
-  }
-  
-});
+// add route get to Router
+router.get('/hello-world', (ctx, next) => {
+    ctx.body = 'Hello-World'
+})
+
+// app.use(async function(ctx) {
+//   // ctx.body c'est le contenu
+//   const body = ctx.request.body;
+//   console.log(body);
+//   ctx.body = `Request Body: ${JSON.stringify(ctx.request.body)}`;
+// });
 
 // demarrer l'application
-if (!module.parent) app.listen(3000);
+if (!module.parent) {
+    app
+        .use(router.routes()) // Specify we use a router
+        .use(router.allowedMethods()) // All because no specification
+        .listen(3000) // localhost:3000/
+}
