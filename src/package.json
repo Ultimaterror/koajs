@@ -1,0 +1,25 @@
+{
+  "name": "koajs",
+  "version": "1.0.0",
+  "description": "nodejs koa",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ultimaterror/koajs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ultimaterror/koajs/issues"
+  },
+  "homepage": "https://github.com/Ultimaterror/koajs#readme",
+  "dependencies": {
+    "koa": "^2.13.3",
+    "koa-body": "^4.2.0",
+    "koa-router": "^10.1.1"
+  }
+}
