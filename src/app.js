@@ -72,7 +72,7 @@ router.post('/authentification-to-db/',  async (ctx, next) => {
 })
 
 router.get('/get-db-collection/:collection', async (ctx, next) => {
-    // recuperer en parametre le nom de la collection a requeter
+    // recuperer en parametre :collection
     let collection = ctx.params.collection;
     console.log(collection);
 
@@ -94,7 +94,7 @@ router.get('/get-db-collection/:collection', async (ctx, next) => {
 })
 
 router.get('/get-db-collection/:collection/:name', async (ctx, next) => {
-    // recuperer en parametre le nom de la collection a requeter
+    // recuperer en parametre :collection, :name et le jwt
     let category = ctx.params.name;
     let collection = ctx.params.collection;
     let jwt = ctx.query.jwt;    
@@ -114,7 +114,7 @@ router.get('/get-db-collection/:collection/:name', async (ctx, next) => {
         console.log('--- --- ---')
          }
     )
-    // return content of collection
+    // return content of category
     ctx.body = category;
 })
 
