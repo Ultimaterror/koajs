@@ -93,11 +93,11 @@ router.get('/get-db-collection/:collection', async (ctx, next) => {
     ctx.body = collection;
 })
 
-router.get('/get-db-collection/:collection/:id', async (ctx, next) => {
+router.get('/get-db-collection/:collection/:name', async (ctx, next) => {
     // recuperer en parametre le nom de la collection a requeter
-    let category = ctx.params.id;
+    let category = ctx.params.name;
     let collection = ctx.params.collection;
-    let jwt = ctx.query.jwt;
+    let jwt = ctx.query.jwt;    
 
     console.log(category)
     // ensuite requeter la base de donnee
