@@ -8,7 +8,7 @@ import Categories from "./Components/Categories";
 function App() {
   return (
     <Router>
-      <Route exact path="/categories" component={Categories} />
+      <Route exact path="/get-db-collection/:collection" component={Categories} />
     </Router>
   );
 }

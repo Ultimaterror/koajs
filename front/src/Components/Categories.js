@@ -2,20 +2,31 @@ import axios from "axios";
 import React, { Component } from "react";
 
 
-const URL = "https://gql.alcyone.life/categories";
+// let collection = (props) => {
+//   console.log(props);
+//   // collection =  props.match.params.category;
+// }
+// console.log(props.match.params.category);
+// const URL = "https://gql.alcyone.life/categories";
 
 
-export default class App extends Component {
+export default class Collection extends Component {
+
+    // $url;
+
     constructor(props) {
       super(props);
+      let collection = props.match.params.collection;
       this.state = {
+        url: `https://gql.alcyone.life/${collection}`,
         items: []
       }
     }
   
     componentDidMount() {
       var _this = this;
-      axios.get(URL)
+      console.log(_this)
+      axios.get(_this.state.url)
       .then(function(res){
         console.log(res.data);
         _this.setState({
