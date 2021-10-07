@@ -2,11 +2,6 @@ import axios from "axios";
 import React, { Component } from "react";
 
 
-// let collection = (props) => {
-//   console.log(props);
-//   // collection =  props.match.params.category;
-// }
-// console.log(props.match.params.category);
 // const URL = "https://gql.alcyone.life/categories";
 
 
@@ -25,10 +20,8 @@ export default class Collection extends Component {
   
     componentDidMount() {
       var _this = this;
-      console.log(_this)
       axios.get(_this.state.url)
       .then(function(res){
-        console.log(res.data);
         _this.setState({
           items: res.data
         });
