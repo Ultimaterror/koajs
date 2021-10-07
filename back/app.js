@@ -104,7 +104,7 @@ router.get('/get-db-collection/:collection/:name', async (ctx, next) => {
     await axios.get(`https://gql.alcyone.life/${collection}?slug=${category}`, { headers: { Authorization: `Bearer ${jwt}` }})
         .then(function (response) {
             console.log(response.data)
-            category = response.data.name
+            category = response.data
             
         })
         .catch(function (error) {
